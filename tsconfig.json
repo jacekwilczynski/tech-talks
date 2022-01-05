@@ -1,13 +1,18 @@
 {
     "compilerOptions": {
         "esModuleInterop": true,
+        "experimentalDecorators": true,
+        "lib": ["es2015"],
         "module": "commonjs",
         "noImplicitAny": true,
         "sourceMap": true,
         "strict": true,
         "target": "es5"
     },
-    "exclude": [
-        "node_modules"
-    ]
+    "include": ["src"],
+    "exclude": ["node_modules"],
+    "ts-node": {
+        "files": true,
+        "transpileOnly": true
+    }
 }
