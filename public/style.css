@@ -1,0 +1,32 @@
+body {
+    font-family: sans-serif;
+    background: #f0f0f0;
+}
+
+.container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+    grid-gap: 2rem;
+    padding: 0;
+    list-style: none;
+}
+
+.product-grid > li {
+    padding: 2rem;
+    background: white;
+    text-align: center;
+}
+
+.product-grid img {
+    max-height: 150px;
+}
+
+.product-grid-price {
+    text-align: right;
+}
