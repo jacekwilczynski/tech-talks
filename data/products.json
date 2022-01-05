@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "name": "Acer Facer",
+        "imageUrl": "acer-facer.jpg",
+        "price": 10
+    },
+    {
+        "id": 2,
+        "name": "HP Page Me",
+        "imageUrl": "hp-page-me.jpg",
+        "price": 22.50
+    },
+    {
+        "id": 3,
+        "name": "Dell From Hell",
+        "imageUrl": "dell-from-hell.jpg",
+        "price": 29.99
+    }
+]

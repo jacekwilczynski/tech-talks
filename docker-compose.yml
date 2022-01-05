@@ -1,0 +1,41 @@
+version: "3.8"
+
+volumes:
+    mysql: ~
+
+services:
+    nodejs:
+        image: node:16.13.1
+        environment:
+            APP_PORT: 80
+            ASSETS_BASE_URL: http://localhost:${HOST_ASSET_PORT}
+            MYSQL_HOST: mysql
+            MYSQL_DATABASE: ~
+            MYSQL_USER: ~
+            MYSQL_PASSWORD: ~
+        working_dir: /home/node
+        volumes:
+            - ./:/home/node
+        ports:
+            - ${HOST_APP_PORT}:80
+        command: tail -f < /dev/null
+
+    assets:
+        image: nginx:1.21.5
+        volumes:
+            - ./assets:/usr/share/nginx/html:ro
+        ports:
+            - ${HOST_ASSET_PORT}:80
+
+    mysql:
+        image: mysql:8.0.27
+        environment:
+            MYSQL_DATABASE: ~
+            MYSQL_ROOT_PASSWORD: ~
+            MYSQL_USER: ~
+            MYSQL_PASSWORD: ~
+        ports:
+            - ${HOST_DB_PORT}:3306
+        volumes:
+            - mysql:/var/lib/mysql:Z
+            - ./db-init:/docker-entrypoint-initdb.d:ro
