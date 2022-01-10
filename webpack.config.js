@@ -5,11 +5,11 @@ module.exports = {
     mode: 'development',
     devtool: 'eval-source-map',
 
-    entry: path.resolve('src/vue/index.ts'),
+    entry: path.resolve('src/grid/index.ts'),
     output: {
         path: path.resolve('public'),
         publicPath: '/',
-        filename: 'vue.js',
+        filename: 'grid.js',
     },
 
     module: {
@@ -34,7 +34,7 @@ module.exports = {
             },
             {
                 test: /\.scss$/,
-                use: ['vue-style-loader', 'css-loader', 'sass-loader'],
+                use: ['style-loader', 'css-loader', 'sass-loader'],
             },
         ],
     },
