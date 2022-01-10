@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <h1>{{ products|length }} products found:</h1>
+
+    <ul class="product-grid">
+        {% for product in products %}
+            <li>
+                <img alt="{{ product.name }}" src="/media/{{ product.imageUrl }}"/>
+                <h2>{{ product.name }}</h2>
+                <div class="product-grid-price">{{ product.price|number_format(2) }} €</div>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
