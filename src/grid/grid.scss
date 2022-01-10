@@ -1,0 +1,24 @@
+.Grid {
+    $gutter-size: 1rem;
+
+    display: flex;
+    flex-wrap: wrap;
+    align-content: stretch;
+    width: calc(100% + #{$gutter-size});
+    margin: -#{$gutter-size / 2};
+
+    &__cell {
+        display: flex;
+        align-content: stretch;
+        width: 100%;
+        padding: #{$gutter-size / 2};
+
+        @media (min-width: 480px) {
+            width: 50%;
+        }
+
+        @media (min-width: 768px) {
+            width: 33%;
+        }
+    }
+}
