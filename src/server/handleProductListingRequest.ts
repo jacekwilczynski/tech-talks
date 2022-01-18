@@ -7,7 +7,9 @@ export default async function handleProductListingRequest(req: Request, res: Res
 
     if (new Date().getMonth() === 0) {
         for (const product of products) {
-            product.price = product.price * 0.9;
+            if (product.price <= 25) {
+                product.price = product.price * 0.9;
+            }
         }
     }
 
