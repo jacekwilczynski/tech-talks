@@ -1,5 +1,6 @@
 import express from "express";
-import handleProductListingRequest from "./handleProductListingRequest";
+import handleProductListingPageRequest from "./handleProductListingPageRequest";
+import handleProductListingApiRequest from './handleProductListingApiRequest';
 import * as path from "path";
 
 const app = express();
@@ -9,6 +10,7 @@ app.set('views', path.join(__dirname, '..', '..', 'views'));
 
 app.use('/', express.static('public'));
 
-app.get('/', handleProductListingRequest);
+app.get('/', handleProductListingPageRequest);
+app.get('/api/products', handleProductListingApiRequest);
 
 app.listen(process.env.APP_PORT);
