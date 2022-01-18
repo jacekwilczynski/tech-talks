@@ -1,33 +1,16 @@
-import express, { Request, Response } from "express";
-import sendProductListing from "./sendProductListing";
+import express from "express";
+import handleProductListingPageRequest from "./handleProductListingPageRequest";
+import handleProductListingApiRequest from './handleProductListingApiRequest';
+import * as path from "path";
 
 const app = express();
 
+app.set('view engine', 'twig');
+app.set('views', path.join(__dirname, '..', '..', 'views'));
+
 app.use('/', express.static('public'));
 
-app.get('/', async (request: Request, response: Response) => {
-    response.write(`
-<!DOCTYPE html>
-<html lang="en-US">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="/style.css">
-<title>Hundertprozentshop.de</title>
-</head>
-<body>
-<div class="container">
-`);
-
-    await sendProductListing(response);
-
-    response.write(`
-</div>
-</body>
-</html>
-`);
-
-    response.end();
-});
+app.get('/', handleProductListingPageRequest);
+app.get('/api/products', handleProductListingApiRequest);
 
 app.listen(process.env.APP_PORT);
