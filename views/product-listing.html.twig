@@ -1,6 +1,8 @@
 {% extends 'base.html.twig' %}
 
 {% block content %}
+    <button class="js-not-buying">I will not buy anything!!!111!!!</button>
+
     <h1>{{ products|length }} products found:</h1>
 
     <ul class="product-grid">
@@ -9,6 +11,7 @@
                 <img alt="{{ product.name }}" src="/media/{{ product.imageUrl }}"/>
                 <h2>{{ product.name }}</h2>
                 <div class="product-grid-price">{{ product.price|number_format(2) }} €</div>
+                <button class="js-add-to-cart" data-product-id="{{ product.id }}">Add to cart</button>
             </li>
         {% endfor %}
     </ul>

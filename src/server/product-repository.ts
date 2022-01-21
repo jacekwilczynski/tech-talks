@@ -6,6 +6,7 @@ export async function getAllProducts(): Promise<Product[]> {
     const dbProducts: DbProduct[] = queryResult[0];
 
     return dbProducts.map((dbProduct: DbProduct): Product => ({
+        id: Number(dbProduct.id),
         name: dbProduct.name,
         imageUrl: dbProduct.image_url,
         price: Number(dbProduct.price),
@@ -13,6 +14,7 @@ export async function getAllProducts(): Promise<Product[]> {
 }
 
 type DbProduct = {
+    id: string;
     name: string;
     image_url: string;
     price: string;
