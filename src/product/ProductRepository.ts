@@ -1,6 +1,11 @@
 import { Product } from './Product';
 import db from '../db';
 
+export interface ProductRepository {
+    getProductById(id:string):Promise<Product>;
+    updateProduct(product:Product)
+}
+
 export async function getProductById(id: string): Promise<Product> {
     const result = await db.query('SELECT * FROM products') as any;
     const product = result[0][0];
