@@ -5,7 +5,7 @@ import Money from 'js-money';
 import Currencies from 'js-money/lib/currency';
 import { getProductById, updateProduct } from '../product/product-repository';
 
-export default class MarketplaceOrderPuller {
+export default class AmazonOrderPuller {
     private readonly httpClient = new HttpClient(amazonConfig);
 
     public async pullOrders(createdAfter: Date): Promise<void> {
